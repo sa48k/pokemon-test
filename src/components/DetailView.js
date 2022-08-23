@@ -17,30 +17,16 @@ export default function DetailView() {
   })
 
   return (
-    <div className="relative sm:w-3/4 lg:w-1/2 mx-auto">
-      <Link className="absolute top-0 right-0 p-2 text-blue-700 text-xl underline" to='/'>Back</Link>
-
-      <div className="absolute top-0 left-0 p-2">
-        <h2 className="text-2xl">#{pokemon.index}</h2>
-      </div>
-
-      <div className="p-4 flex flex-row ">
-
-        <div className="flex justify-center items-center flex-col basis-1/4 ">
-          <div className="py-4">
-            <h2 className="text-3xl">{pokemon.name}</h2>
-          </div>
-          <div className="py-4">
-            <p>{types}</p>
-          </div>
+    <div className="flex justify-center gap-4">
+      <div className="text-xl">#{pokemon.index}</div>
+      <div className="flex flex-col">
+        <div className="m-auto">
+          <h2 className="text-3xl py-4">{pokemon.name}</h2>
+          {types}
         </div>
-
-        <div className="basis-3/4">
-          <img className="mx-auto w-60 h-60  p-4 m-4" src={pokemon.image_url} alt={pokemon.name} />
-        </div>
-
       </div>
-
+      <div><img className="mx-auto w-60 h-60" src={pokemon.image_url} alt={pokemon.name} /></div>
+      <div><Link className="p-2 text-blue-700 text-xl underline" to='/'>Back</Link></div>
     </div>
   )
 }
