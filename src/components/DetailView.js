@@ -13,7 +13,7 @@ export default function DetailView() {
 
   const pokemon = getPokemon(params.name)
   const types = pokemon.types.map(type => {
-    return <span className="mx-1 bg-slate-800 text-white rounded-xl p-2">{type}</span>
+    return <span className="mx-1 bg-slate-800 font-raleway font-light text-white rounded-xl p-2">{type}</span>
   })
 
   return (
@@ -21,12 +21,12 @@ export default function DetailView() {
       <div className="text-xl">#{pokemon.index}</div>
       <div className="flex flex-col">
         <div className="m-auto">
-          <h2 className="text-3xl py-4">{pokemon.name}</h2>
+          <h2 className="text-3xl font-raleway py-4">{pokemon.name}</h2>
           {types}
         </div>
       </div>
       <div><img className="mx-auto w-60 h-60" src={pokemon.image_url} alt={pokemon.name} /></div>
-      <div><Link className="p-2 text-blue-700 text-xl underline" to='/'>Back</Link></div>
+      <div><Link className="text-blue-700 text-xl underline" to='/'>Back</Link></div>
     </div>
   )
 }
