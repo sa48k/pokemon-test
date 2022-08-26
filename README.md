@@ -9,5 +9,9 @@ Run `npm install` in this directory to install the required dependencies, then `
 # Usage
 From the main grid, click on a Pokemon to display its details. Use the sidebar to filter by type.
 
+# Screenshots
+![Main view]('/assets/images/ss1.png')
+![Detail view]('/assets/images/ss2.png')
+
 # Known issues
 If the user navigates directly to a details view (e.g. /details/bulbasaur') instead of arriving via a link on the main grid view, the 'back' button doesn't return the user to the main grid view.
