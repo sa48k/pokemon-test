@@ -1,14 +1,12 @@
 import React from 'react'
 
-function Sidebar({ checkedTypes, setCheckedTypes }) {
-    const typesarray = ['normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy']
-
+function Sidebar({ checkedTypes, setCheckedTypes, typesarray }) {
     // function to handle clicks from individual type buttons
     const handleChange = (typeclicked) => {
         setCheckedTypes((prevState) => ({ ...prevState, [typeclicked]: !prevState[typeclicked] }))
     }
 
-    // for hide/show all buttons
+    // function to handle hide/show all buttons
     const handleChangeAll = (newstate) => {
         let updated = {}
         const keys = Object.keys(checkedTypes)

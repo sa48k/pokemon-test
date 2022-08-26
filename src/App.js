@@ -5,52 +5,24 @@ import Header from './components/Header/Header'
 import MainGrid from './components/MainGrid/MainGrid'
 import DetailView from './components/DetailView/DetailView'
 import Sidebar from './components/Sidebar/Sidebar'
+import fetchPokemon from './utils/fetchPokemon';
 
 function App() {
   const [allPokemon, setAllPokemon] = useState({ pokemon: [] })
   const [isLoading, setIsLoading] = useState(true);
 
   // initialise the array of pokemon types and use them as keys with Boolean values
-  // we can use this to store state from the filter in the sidebar component, e.g. {fire: true, flying: true, etc.}
+  // we can use this to store state for the filter in the sidebar, e.g. {fire: true, flying: true, etc.}
+  // and then conditionally render PokemonCards based on the checkedTypes
   const typesarray = ['normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy']
   let pokemontypes = {}
   for (const type of typesarray) {
     pokemontypes[type] = true
   }
-  const [checkedTypes, setCheckedTypes] = useState(pokemontypes)  // for type checkboxes in sidebar
+  const [checkedTypes, setCheckedTypes] = useState(pokemontypes) 
 
-  // GraphQL query to get names, ids, types, and flavour text from the API
   useEffect(() => {
-    const gqlQuery = `
-      query getPokemon {
-        pokemon: pokemon_v2_pokemon(limit:150) {
-          name
-          id
-          types: pokemon_v2_pokemontypes {
-            types: pokemon_v2_type {
-              name: name
-            }
-          }
-        }
-        text: pokemon_v2_pokemonspecies {
-          flavortext: pokemon_v2_pokemonspeciesflavortexts(where: {pokemon_v2_language: {name: {_eq: "en"}}, pokemon_v2_version: {name: {_eq: "firered"}}, pokemon_species_id: {_lte: 150, _gte: 1}}) {
-            flavor_text
-            pokemon_species_id
-          }
-        }
-      }
-      `;
-
-    fetch('https://beta.pokeapi.co/graphql/v1beta', {
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        query: gqlQuery,
-      }),
-      method: 'POST',
-    })
-      .then((res) => res.json())
-      .then((res) => setAllPokemon(res.data))
-      .finally(() => {setIsLoading(false);});
+    fetchPokemon({setAllPokemon, setIsLoading})
   }, []);
 
   return (
@@ -65,7 +37,7 @@ function App() {
         <main className="ml-44 flex-1 p-4">
 
           {isLoading ?
-            <h2 className="text-xl">Loading...</h2>
+            <h2 className="text-xl mt-8">Loading...</h2>
             :
             <Routes>
               <Route path="/details/:name" element={allPokemon && <DetailView allPokemon={allPokemon} />} />

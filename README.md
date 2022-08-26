@@ -2,9 +2,9 @@
  Technical Test - August 2022
 
 # Installation
-Make sure you have `npm` available globally. Clone the repository with `https://github.com/sa48k/pokemon-test.git`.
+Make sure you have `npm` available globally. Clone the repository with `git clone https://github.com/sa48k/pokemon-test.git`. Run `npm install` in this directory to install the required dependencies, then `npm start` to launch the server.
 
-Run `npm install` in this directory to install the required dependencies, then `npm start` to launch the server.
+Alternatively, see the [live demo](https://main.d1pgd9zqjsvwq6.amplifyapp.com).
 
 # Usage
 From the main grid, click on a Pokemon to display its details. Use the sidebar to filter by type.
