@@ -10,7 +10,10 @@ Run `npm install` in this directory to install the required dependencies, then `
 From the main grid, click on a Pokemon to display its details. Use the sidebar to filter by type.
 
 # Screenshots
+## Main view
 ![Main view](https://i.postimg.cc/FRwQTP7X/ss1.png)
+
+## Detail view
 ![Detail view](https://i.postimg.cc/brbfWQtD/ss2.png)
 
 # Known issues
