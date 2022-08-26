@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import './App.css';
+import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import Header from './components/Header/Header'
 import MainGrid from './components/MainGrid/MainGrid'
 import DetailView from './components/DetailView/DetailView'
 import Sidebar from './components/Sidebar/Sidebar'
-import fetchPokemon from './utils/fetchPokemon';
+import fetchPokemon from './utils/fetchPokemon'
+import './App.css'
 
 function App() {
   const [allPokemon, setAllPokemon] = useState({ pokemon: [] })
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
 
   // initialise the array of pokemon types and use them as keys with Boolean values
   // we can use this to store state for the filter in the sidebar, e.g. {fire: true, flying: true, etc.}
@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     fetchPokemon({setAllPokemon, setIsLoading})
-  }, []);
+  }, [])
 
   return (
     <div className="App">
@@ -48,7 +48,7 @@ function App() {
         </main>
       </div>
     </div>
-  );
+  )
 }
 
 export default App

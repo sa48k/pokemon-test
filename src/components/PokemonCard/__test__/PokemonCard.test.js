@@ -4,7 +4,7 @@ import PokemonCard from '../PokemonCard.js'
 
 const mockpokemon = {
     name: "bulbasaur",
-    id: 142,
+    id: 1,
     types: [
         {
             types: {
@@ -19,7 +19,7 @@ const mockpokemon = {
     ]
 }
 
-const MockPokemonCard = ({pokemon}) => (
+const MockPokemonCard = () => (
     <BrowserRouter>
         <PokemonCard pokemon={mockpokemon} />
     </BrowserRouter>

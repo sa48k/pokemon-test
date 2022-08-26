@@ -2,21 +2,28 @@ import React from 'react'
 import PokemonCard from '../PokemonCard/PokemonCard'
 
 export default function MainGrid({ allPokemon, checkedTypes, isLoading }) {
-    // use the checkedTypes to decide which pokemon we send to the main window
+    // get the checked types which is set by the sidebar
     const filterlist = Object.keys(checkedTypes).filter(key => checkedTypes[key] === true)
-    const filteredPokemon = allPokemon.pokemon.map(pokemon => {
+
+    // iterate through all pokemon. for each one, add it to our results IF it has a type
+    // matching those found in the checkedTypes
+    const filteredPokemon = allPokemon.pokemon.map((pokemon, index) => {
         const types = pokemon.types.map(type => type.types.name)
         if (filterlist.some(element => types.includes(element))) {
             return (
-                <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                <div data-testid={`pokemon-card`}>
+                    <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                </div>
             )
         } else {
             return null
         }
     })
 
+    // check that there are non-null elements in the filteredPokemon array. if so, render them. 
+    // if the filteredPokemon array is all null, render 'no pokemon found' message
     return (
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" data-testid="maingrid" title="maingrid">
             {Object.values(filteredPokemon).some(Boolean) ? filteredPokemon : <p className="mx-auto">No Pokemon to display</p>}
         </div>
     )
