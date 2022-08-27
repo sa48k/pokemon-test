@@ -19,5 +19,7 @@ From the main grid, click on a Pokemon to display its details. Use the sidebar t
 If the user navigates directly to a details view (e.g. /details/bulbasaur') instead of arriving via a link on the main grid view, the 'back' button doesn't return the user to the main grid view.
 
 ## Notes
-- First time using a GraphQL API. The query I use here to retrieve pokemon info from the API feels like it could be a *lot* cleaner by returning an array of types (fire, flying, etc.) alongside each Pokemon instead of the nested object I've ended up with. Also, there must be a better way to include the flavour text alongside the Pokemon info; because of my clumsy query (or possibly misunderstanding the API), I end up retrieving two objects: one containing pokemon info, and the other containing all the flavour text. This leads to some inelegant and hard-to-read code in React when I need to retrieve this info on the detail view.
-- Also my first attempt at writing tests for React. 
+- First time using a GraphQL API. 
+  - The query I use here to retrieve pokemon info from the API could be much cleaner. It retrieves a nested object for each pokemon's type, which is awkward to work with and leads to inelegant code in React. It would be better to retrieve a simple array of types, e.g. `{ types: ['fire', 'flying'] }`
+  - Similarly, there must be a better way to include the flavour text alongside the Pokemon info. With this query, two objects are retrieved: one containing pokemon info, and the other containing all the flavour text. I'm guessing that GraphQL will allow me to 'merge' these queries but haven't figured out how yet.
+- Also my first attempt at writing tests for React.

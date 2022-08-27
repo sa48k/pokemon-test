@@ -23,7 +23,7 @@ export default function DetailView({ allPokemon }) {
     <div className={"max-w-xl mx-auto bg-" + types[0] + " p-8 rounded bg-opacity-40 border border-slate-600"}>
       {/* Top row - back button (click to go back to gallery, maintaining scroll position), and id number */}
       <div className="w-full flex justify-between">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 hover:text-white" onClick={() => handleGoBack()}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 hover:text-white" onClick={() => handleGoBack()} alt="Back">
           <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clipRule="evenodd" />
         </svg>
         <h3 className="text-xl text-gray-600 font-light">#{pokemon.id}</h3>
