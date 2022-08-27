@@ -11,8 +11,8 @@ export default function MainGrid({ allPokemon, checkedTypes, isLoading }) {
         const types = pokemon.types.map(type => type.types.name)
         if (filterlist.some(element => types.includes(element))) {
             return (
-                <div data-testid={`pokemon-card`}>
-                    <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                <div data-testid={`pokemon-card`} key={pokemon.id}>
+                    <PokemonCard pokemon={pokemon} />
                 </div>
             )
         } else {
