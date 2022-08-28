@@ -15,11 +15,11 @@ From the main grid, click on a Pokemon to display its details. Use the sidebar t
 ### Detail view
 ![Detail view](https://i.postimg.cc/brbfWQtD/ss2.png)
 
-## Known issues
-If the user navigates directly to a details view (e.g. /details/bulbasaur') instead of arriving via a link on the main grid view, the 'back' button doesn't return the user to the main grid view.
-
 ## Notes
-- First time using a GraphQL API. 
-  - The query I use here to retrieve pokemon info from the API could be much cleaner. It retrieves a nested object for each pokemon's type, which is awkward to work with and leads to inelegant code in React. It would be better to retrieve a simple array of types, e.g. `{ types: ['fire', 'flying'] }`
+- First time using a GraphQL API, and my inexperience shows:
+  - The query I use here to retrieve pokemon info from the API could be much cleaner. It retrieves a nested object for each pokemon's types, which is awkward to work with and leads to inelegant code in React. It would be better to retrieve a simple array of types: `{ types: ['fire', 'flying'] }`
   - Similarly, there must be a better way to include the flavour text alongside the Pokemon info. With this query, two objects are retrieved: one containing pokemon info, and the other containing all the flavour text. I'm guessing that GraphQL will allow me to 'merge' these queries but haven't figured out how yet.
 - Also my first attempt at writing tests for React.
+  - Started with simple unit tests, e.g. 'does `<Header />` render a header?', 'does the main grid contain 150 pokemon cards on startup?'
+  - Progressed to integration tests, e.g. 'are exactly 12 cards displayed when the user clicks *Hide All* then *Fire*?'
+  - Again, lots to learn here :)

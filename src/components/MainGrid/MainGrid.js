@@ -1,7 +1,7 @@
 import React from 'react'
 import PokemonCard from '../PokemonCard/PokemonCard'
 
-export default function MainGrid({ allPokemon, checkedTypes, isLoading }) {
+export default function MainGrid({ allPokemon, checkedTypes }) {
     // get the checked types which is set by the sidebar
     const filterlist = Object.keys(checkedTypes).filter(key => checkedTypes[key] === true)
 

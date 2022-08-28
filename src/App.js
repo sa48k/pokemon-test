@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     fetchPokemon({setAllPokemon, setIsLoading})
-  }, [])
+  }, []) // no dependencies; run once only
 
   return (
     <div className="App">
